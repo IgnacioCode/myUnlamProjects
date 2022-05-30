@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1653336243 source:c:\users\nacho\desktop\programas\tda\lista_imp_dinamica\lista_dinamica.c
+	"..\Lista\Lista.h"
+
+1653330543 c:\users\nacho\desktop\programas\tda\lista\lista.h
+	"..\Lista_Imp_Estatica\Lista_Imp_Estatica.h"
+	"..\Lista_Imp_Dinamica\Lista_Dinamica.h"
+
+1653329466 c:\users\nacho\desktop\programas\tda\lista_imp_dinamica\lista_dinamica.h
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	"..\..\Nodo\Nodo.h"
+	"..\..\Comun\Comun.h"
+
+1652966111 c:\users\nacho\desktop\programas\nodo\nodo.h
+	<stddef.h>
+	<stdlib.h>
+	<memory.h>
+	"..\Comun\Comun.h"
+
+1652966644 c:\users\nacho\desktop\programas\comun\comun.h
+

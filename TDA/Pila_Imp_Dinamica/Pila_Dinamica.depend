@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1652106528 source:c:\users\nacho\desktop\programas\tda\pila_imp_dinamica\pila_dinamica.c
+	"Pila_Dinamica.h"
+	"..\Pila\Pila.h"
+
+1652106626 c:\users\nacho\desktop\programas\tda\pila_imp_dinamica\pila_dinamica.h
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	"..\..\Comun\Comun.h"
+
+1649332775 c:\users\nacho\desktop\programas\comun\comun.h
+
+1652106319 c:\users\nacho\desktop\programas\tda\pila\pila.h
+	"..\Pila_Imp_Estatica\Pila_Estatica.h"
+	"..\Pila_Imp_Dinamica\Pila_Dinamica.h"
+
+1651771665 c:\users\nacho\desktop\programas\tda\pila_imp_estatica\pila_estatica.h
+	<stdio.h>
+	<memory.h>
+	"..\..\Comun\Comun.h"
+

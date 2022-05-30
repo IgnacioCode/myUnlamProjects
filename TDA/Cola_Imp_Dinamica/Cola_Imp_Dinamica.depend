@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1652821575 source:c:\users\nacho\desktop\programas\tda\cola_imp_dinamica\cola_dinamica.c
+	"..\Cola\Cola.h"
+	<stdlib.h>
+	<string.h>
+
+1652821664 c:\users\nacho\desktop\programas\tda\cola\cola.h
+	<stddef.h>
+	"..\Cola_Imp_Estatica\Cola_Estatica.h"
+	"..\Cola_Imp_Dinamica\Cola_Dinamica.h"
+
+1652818240 c:\users\nacho\desktop\programas\tda\cola_imp_estatica\cola_estatica.h
+	<stddef.h>
+	"..\..\Comun\Comun.h"
+
+1652819973 c:\users\nacho\desktop\programas\comun\comun.h
+
+1652820082 c:\users\nacho\desktop\programas\tda\cola_imp_dinamica\cola_dinamica.h
+	<stddef.h>
+	"..\..\Comun\Comun.h"
+
