@@ -23,3 +23,35 @@
 
 1652966644 c:\users\nacho\desktop\programas\comun\comun.h
 
+1653950956 source:f:\github\myunlamprojects\testlista\main.c
+	<stdio.h>
+	<stdlib.h>
+	"..\TDA\Lista\Lista.h"
+
+1653570164 f:\github\myunlamprojects\tda\lista\lista.h
+	"..\Lista_Imp_Estatica\Lista_Imp_Estatica.h"
+	"..\Lista_Imp_Dinamica\Lista_Dinamica.h"
+	"..\Lista_Imp_Dinamica_Doble\Lista_Dinamica_Doble.h"
+
+1653329466 f:\github\myunlamprojects\tda\lista_imp_dinamica\lista_dinamica.h
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	"..\..\Nodo\Nodo.h"
+	"..\..\Comun\Comun.h"
+
+1652966111 f:\github\myunlamprojects\nodo\nodo.h
+	<stddef.h>
+	<stdlib.h>
+	<memory.h>
+	"..\Comun\Comun.h"
+
+1652966644 f:\github\myunlamprojects\comun\comun.h
+
+1653570493 f:\github\myunlamprojects\tda\lista_imp_dinamica_doble\lista_dinamica_doble.h
+	"..\..\Nodo\NodoD.h"
+	"..\..\Comun\Comun.h"
+
+1653570653 f:\github\myunlamprojects\nodo\nodod.h
+	<stddef.h>
+

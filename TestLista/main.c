@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#define LISTA_IMP_DINAMICA
+
 #include "..\TDA\Lista\Lista.h"
 
 int comparaEntero(const void* d1,const void* d2){
