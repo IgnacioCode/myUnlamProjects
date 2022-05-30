@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1650308544 source:c:\users\nacho\desktop\programas\testcadena\main.c
+	<stdio.h>
+	<stdlib.h>
+	"..\Cadenas\Cadenas.h"
+
+1650308496 c:\users\nacho\desktop\programas\cadenas\cadenas.h
+	"..\Comun\Comun.h"
+
+1649332775 c:\users\nacho\desktop\programas\comun\comun.h
+

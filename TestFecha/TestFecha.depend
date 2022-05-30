@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1649210274 source:c:\users\nacho\desktop\programas\testfecha\main.c
+	<stdio.h>
+	<stdlib.h>
+	"..\Fecha\Fecha.h"
+
+1649208752 c:\users\nacho\desktop\programas\fecha\fecha.h
+

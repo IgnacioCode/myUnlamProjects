@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1653624163 source:c:\users\nacho\desktop\programas\modeloparcial_23_05\listamodelo\lista_dinamica.c
+	"Lista_Dinamica.h"
+
+1653623155 c:\users\nacho\desktop\programas\modeloparcial_23_05\listamodelo\lista_dinamica.h
+	<stddef.h>
+	<memory.h>
+	<stdlib.h>
+

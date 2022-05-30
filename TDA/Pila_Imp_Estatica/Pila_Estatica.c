@@ -6,8 +6,6 @@
 #endif
 #define DESTINO_PILA pp->vPila+pp->tope
 
-#define PRUEBA_PUTITA 1
-
 
 #include "..\Pila\Pila.h"
 

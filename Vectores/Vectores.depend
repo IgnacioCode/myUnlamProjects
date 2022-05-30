@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1649335070 source:c:\users\nacho\desktop\programas\vectores\vectores.c
+	"Vectores.h"
+	<stdio.h>
+
+1649334722 c:\users\nacho\desktop\programas\vectores\vectores.h
+	"..\Comun\Comun.h"
+
+1649332775 c:\users\nacho\desktop\programas\comun\comun.h
+

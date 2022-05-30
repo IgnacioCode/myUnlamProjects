@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1648610365 source:c:\users\nacho\onedrive\documentos\universidad\2022\programacion\programas\funciones_matematicas\funciones.c
+	<stdio.h>
+	<stdlib.h>
+
+1648610416 source:c:\users\nacho\onedrive\documentos\universidad\2022\programacion\programas\funciones_matematicas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1648610365 c:\users\nacho\onedrive\documentos\universidad\2022\programacion\programas\funciones_matematicas\funciones.h
+	<stdio.h>
+	<stdlib.h>
+
+1648859766 source:c:\users\nacho\desktop\programas\funciones_matematicas\funciones.c
+	<stdio.h>
+	<stdlib.h>
+
+1648859756 source:c:\users\nacho\desktop\programas\funciones_matematicas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1648859672 c:\users\nacho\desktop\programas\funciones_matematicas\funciones.h
+	<stdio.h>
+	<stdlib.h>
+

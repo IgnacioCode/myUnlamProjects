@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "pila_estatica.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "archivos.h": "c",
+        "comun.h": "c",
+        "memory.h": "c",
+        "cola_estatica.h": "c",
+        "nodo.h": "c",
+        "lista.h": "c",
+        "lista_dinamica.h": "c",
+        "string.h": "c",
+        "pila_dinamica.h": "c",
+        "pila_circular_dinamica.h": "c",
+        "lista_dinamica_doble.h": "c"
+    }
+}

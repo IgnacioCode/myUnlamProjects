@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1651388107 source:c:\users\nacho\desktop\programas\archivos\archivos.c
+	"Archivos.h"
+
+1651388044 c:\users\nacho\desktop\programas\archivos\archivos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"..\Comun\Comun.h"
+
+1649332775 c:\users\nacho\desktop\programas\comun\comun.h
+
