@@ -111,7 +111,6 @@ int generarFacturas_ALU(const char* nombreArchivoClientes, const char* nombreArc
 				insertarEnListaOrd(&listaFacturasCliente,&medicionLeida,sizeof(Medicion),comparaMediciones);
 			}
 			
-
 			facturaAux.nroFactura=proximoNroFactura;
 			facturaAux.nroCliente=clienteLeido.nroCliente;
 
