@@ -77,9 +77,9 @@ int extraerMesesAFacturar(char* argv[], Mes* mesesAFacturar)
 
 int generarFacturas_ALU(const char* nombreArchivoClientes, const char* nombreArchivoMediciones, const char* nombreArchivoFacturas, int proximoNroFactura, const Mes* mesesAFacturar, int cantMesesAFacturar){
 
-	int i,j,DM,DD;
-	float CDE;
-	float CM;
+	int i,DM,DD;
+	double CDE;
+	double CM;
 	FILE* pfMed = fopen(nombreArchivoMediciones,"rt");
 	FILE* pfCli = fopen(nombreArchivoClientes,"rb");
 	FILE* pfFac = fopen(nombreArchivoFacturas,"wb");
@@ -105,12 +105,14 @@ int generarFacturas_ALU(const char* nombreArchivoClientes, const char* nombreArc
 	while(!feof(pfCli)){
 
 		for(i=0;i<cantMesesAFacturar;i++){
+			eliminarDeListaPrimero(&listaMediciones,&medicionLeida,sizeof(Medicion));
+			insertarEnListaOrd(&listaFacturasCliente,&medicionLeida,sizeof(Medicion),comparaMediciones);
+		}
 
-			for(j=0;j<cantMesesAFacturar;j++){
-				eliminarDeListaPrimero(&listaMediciones,&medicionLeida,sizeof(Medicion));
-				insertarEnListaOrd(&listaFacturasCliente,&medicionLeida,sizeof(Medicion),comparaMediciones);
-			}
-			
+		for(i=0;i<cantMesesAFacturar;i++){
+
+			eliminarDeListaPrimero(&listaFacturasCliente,&medicionLeida,sizeof(Medicion));
+
 			facturaAux.nroFactura=proximoNroFactura;
 			facturaAux.nroCliente=clienteLeido.nroCliente;
 
@@ -119,38 +121,39 @@ int generarFacturas_ALU(const char* nombreArchivoClientes, const char* nombreArc
 			}
 			else{
 				facturaAux.fechaUltMedicion=medicionLeida.fechaMedicion;
+
 			}
 
 			facturaAux.valorMedidor=medicionLeida.valorMedidor;
 			facturaAux.mesFacturado=fechaAMes(medicionLeida.fechaMedicion);
 
-			if(facturaAnterior.nroCliente!=facturaAux.nroCliente){
+			if(i==0){
 				DM = clienteLeido.valorMedidor;
 				DD = difEnDiasEntreFechas(&facturaAux.fechaUltMedicion,&clienteLeido.fechaUltMedicion);
 				CDE = ((float)DM)/((float)DD);
 				CM = CDE * cantDiasMes(facturaAux.mesFacturado.mes,facturaAux.mesFacturado.anio);
 			}
 			else{
-				verPrimeroDeLista(&listaFacturasCliente,&facturaAnterior,sizeof(Factura));
 				DM = facturaAnterior.valorMedidor;
 				DD = difEnDiasEntreFechas(&facturaAux.fechaUltMedicion,&facturaAnterior.fechaUltMedicion);
 				CDE = ((float)DM)/((float)DD);
 				CM = CDE * cantDiasMes(facturaAux.mesFacturado.mes,facturaAux.mesFacturado.anio);
 			}
 
+			facturaAux.consumoMes=CM;
+			facturaAnterior=facturaAux;
 			fwrite(&facturaAux,sizeof(Factura),1,pfFac);
-			
+
 
 		}
 
 		fread(&clienteLeido,sizeof(Cliente),1,pfCli);
 
-
 	}
 
-
-
-
+    fclose(pfMed);
+    fclose(pfCli);
+    fclose(pfFac);
 
     return 0;
 }
