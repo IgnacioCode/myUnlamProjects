@@ -97,7 +97,7 @@ int generarFacturas_ALU(const char* nombreArchivoClientes, const char* nombreArc
 	Factura facturaAux;
 
 	fgets(lineaMedicion,TAM_MAXIMO_MEDICION,pfMed);
-	medicionLeida = lineaMedicion(lineaMedicion);
+	medicionLeida = lineaAMedicion(lineaMedicion);
 	while(!feof(pfMed)){
 		insertarEnListaOrd(&listaMediciones,&medicionLeida,sizeof(Medicion),comparaMediciones);
 		fgets(lineaMedicion,TAM_MAXIMO_MEDICION,pfMed);
@@ -237,7 +237,7 @@ Medicion lineaAMedicion(char* str){
 	i=0;
 	
 	diaAux[0]=*carAct;
-	diaAux[1]=8(carAct+1);
+	diaAux[1]=*(carAct+1);
 	carAct=+3;
 	mesAux[0]=*carAct;
 	mesAux[1]=*(carAct=1);
@@ -256,8 +256,8 @@ Medicion lineaAMedicion(char* str){
 	medAux.nroCliente=atoi(nroAux);
 	medAux.valorMedidor=atoi(valorAux);
 	medAux.fechaMedicion.dia = atoi(diaAux);
-	medAux.fechaUltMedicion.mes = atoi(mesAux);
-	medAux.fechaUltMedicion.anio = atoi(anioAux);
+	medAux.fechaMedicion.mes = atoi(mesAux);
+	medAux.fechaMedicion.anio = atoi(anioAux);
 
 	return medAux;
 }
