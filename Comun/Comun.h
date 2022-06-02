@@ -16,5 +16,6 @@ typedef enum{
 
 typedef int (*Cmp)(const void*,const void*);
 typedef int (*Accion)(const void*,const void*);
+typedef int (*Actualizar)(void*,const void*);
 
 #endif // VECTORES_H_INCLUDED

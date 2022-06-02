@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1654194815 source:f:\github\myunlamprojects\tda\arbol_imp_dinamica\arbol_dinamico.c
+	"..\Arbol\Arbol.h"
+
+1654194694 f:\github\myunlamprojects\tda\arbol\arbol.h
+	"..\..\Comun\Comun.h"
+	"..\Arbol_Imp_Dinamica\Arbol_Dinamico.h"
+
+1654189709 f:\github\myunlamprojects\comun\comun.h
+
+1654189314 f:\github\myunlamprojects\tda\arbol_imp_dinamica\arbol_dinamico.h
+	"..\..\Nodo\NodoA.h"
+	"..\..\Comun\Comun.h"
+
+1654187805 f:\github\myunlamprojects\nodo\nodoa.h
+	<stddef.h>
+

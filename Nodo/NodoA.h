@@ -12,7 +12,7 @@ typedef struct SnodoA{
 
 }NodoA;
 
-NodoA* crearNodoD(const void* elem, size_t tamElem);
-void destruirNodoD(NodoA* nae,void* elem,size_t tamElem);
+NodoA* crearNodoA(const void* elem, size_t tamElem);
+void destruirNodoA(NodoA* nae,void* elem,size_t tamElem);
 
 #endif // NODOA_H_INCLUDED

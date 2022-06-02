@@ -1,5 +1,6 @@
 #include "Nodo.h"
 #include "NodoD.h"
+#include "NodoA.h"
 
 Nodo* crearNodo(const void* elem, size_t tamElem){
 
@@ -49,6 +50,33 @@ NodoD* crearNodoD(const void* elem, size_t tamElem){
 }
 
 void destruirNodoD(NodoD* nae,void* elem,size_t tamElem){
+    memcpy(elem,nae->elem,MIN(tamElem,nae->tamElem));
+    free(nae->elem);
+    free(nae);
+}
+
+NodoA* crearNodoA(const void* elem, size_t tamElem){
+
+    NodoA* nuevoNodo=(NodoA*)malloc(sizeof(NodoA));
+    void* dirDimElem=malloc(tamElem);
+
+    if(!nuevoNodo || !dirDimElem){
+        free(nuevoNodo);
+        free(dirDimElem);
+        return NULL;
+    }
+
+    memcpy(dirDimElem,elem,tamElem);
+
+    nuevoNodo->elem=dirDimElem;
+    nuevoNodo->tamElem=tamElem;
+    nuevoNodo->hDer=NULL;
+    nuevoNodo->hIzq=NULL;
+
+    return nuevoNodo;
+}
+
+void destruirNodoA(NodoA* nae,void* elem,size_t tamElem){
     memcpy(elem,nae->elem,MIN(tamElem,nae->tamElem));
     free(nae->elem);
     free(nae);
