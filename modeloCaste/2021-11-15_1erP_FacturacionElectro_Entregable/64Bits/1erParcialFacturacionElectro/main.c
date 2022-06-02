@@ -13,7 +13,7 @@
 #define ARG_FACTURAS	3
 #define ARG_PROXIMO_NRO_FACTURA 4
 #define ARG_CANT_MESES_A_FACTURAR 5
-#define TAM_MAXIMO_MEDICION 20
+#define TAM_MAXIMO_MEDICION 24
 
 #define MAX_MESES 10
 
@@ -22,6 +22,7 @@ int generarFacturas_ALU(const char* nombreArchivoClientes, const char* nombreArc
 int comparaFecha(Fecha* f1, Fecha* f2);
 int comparaMediciones(const void* m1, const void* m2);
 Mes fechaAMes(Fecha f1);
+Medicion lineaAMedicion(char* str);
 
 int main(int argc, char* argv[])
 {
@@ -220,34 +221,40 @@ Medicion lineaAMedicion(char* str){
 
 	Medicion medAux;
 	char* carAct=str;
-	char nroAux[4];
-	char diaAux[2];
-	char mesAux[2];
-	char anioAux[2];
-	char valorAux[7];
+	char nroAux[5];
+	char diaAux[3];
+	char mesAux[3];
+	char anioAux[5];
+	char valorAux[8];
 	int i=0;
 
 	while(*carAct!='|'){
-		
+
 		nroAux[i]= *carAct;
 		i++;
 		carAct++;
 	}
+	nroAux[i]='\0';
 	carAct++;
 	i=0;
-	
+
 	diaAux[0]=*carAct;
 	diaAux[1]=*(carAct+1);
-	carAct=+3;
+	diaAux[2]=0;
+	carAct+=3;
 	mesAux[0]=*carAct;
-	mesAux[1]=*(carAct=1);
-	carAct=+3;
+	mesAux[1]=*(carAct+1);
+	mesAux[2]=0;
+	carAct+=3;
 	anioAux[0]=*carAct;
 	anioAux[1]=*(carAct+1);
-	
-	carAct+=3;
+	anioAux[2]=*(carAct+2);
+    anioAux[3]=*(carAct+3);
+    anioAux[4]=0;
 
-	while(*carAct!='\0'){
+	carAct+=5;
+
+	while(*carAct!='\n'){
 		valorAux[i]=*carAct;
 		carAct++;
 		i++;
