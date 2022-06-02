@@ -13,6 +13,7 @@
 #define ARG_FACTURAS	3
 #define ARG_PROXIMO_NRO_FACTURA 4
 #define ARG_CANT_MESES_A_FACTURAR 5
+#define TAM_MAXIMO_MEDICION 20
 
 #define MAX_MESES 10
 
@@ -90,14 +91,17 @@ int generarFacturas_ALU(const char* nombreArchivoClientes, const char* nombreArc
 	crearLista(&listaMediciones);
 
 	Medicion medicionLeida;
+	char lineaMedicion[TAM_MAXIMO_MEDICION];
 	Cliente clienteLeido;
 	Factura facturaAnterior;
 	Factura facturaAux;
 
-	fread(&medicionLeida,sizeof(Medicion),1,pfMed);
+	fgets(lineaMedicion,TAM_MAXIMO_MEDICION,pfMed);
+	medicionLeida = lineaMedicion(lineaMedicion);
 	while(!feof(pfMed)){
 		insertarEnListaOrd(&listaMediciones,&medicionLeida,sizeof(Medicion),comparaMediciones);
-		fread(&medicionLeida,sizeof(Medicion),1,pfMed);
+		fgets(lineaMedicion,TAM_MAXIMO_MEDICION,pfMed);
+		medicionLeida = lineaAMedicion(lineaMedicion);
 	}
 
 
@@ -210,5 +214,51 @@ Mes fechaAMes(Fecha f1){
 	mAux.mes=f1.mes;
 
 	return mAux;
+}
+
+Medicion lineaAMedicion(char* str){
+
+	Medicion medAux;
+	char* carAct=str;
+	char nroAux[4];
+	char diaAux[2];
+	char mesAux[2];
+	char anioAux[2];
+	char valorAux[7];
+	int i=0;
+
+	while(*carAct!='|'){
+		
+		nroAux[i]= *carAct;
+		i++;
+		carAct++;
+	}
+	carAct++;
+	i=0;
+	
+	diaAux[0]=*carAct;
+	diaAux[1]=8(carAct+1);
+	carAct=+3;
+	mesAux[0]=*carAct;
+	mesAux[1]=*(carAct=1);
+	carAct=+3;
+	anioAux[0]=*carAct;
+	anioAux[1]=*(carAct+1);
+	
+	carAct+=3;
+
+	while(*carAct!='\0'){
+		valorAux[i]=*carAct;
+		carAct++;
+		i++;
+	}
+
+	medAux.nroCliente=atoi(nroAux);
+	medAux.valorMedidor=atoi(valorAux);
+	medAux.fechaMedicion.dia = atoi(diaAux);
+	medAux.fechaUltMedicion.mes = atoi(mesAux);
+	medAux.fechaUltMedicion.anio = atoi(anioAux);
+
+	return medAux;
 }
 
