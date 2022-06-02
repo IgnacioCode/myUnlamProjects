@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add library="../TDA/Arbol_Imp_Dinamica/bin/Debug/libArbol_Imp_Dinamica.a" />
+			<Add library="../Nodo/bin/Debug/libNodo.a" />
+		</Linker>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
