@@ -1,13 +1,12 @@
 #ifndef PILA_H
 #define PILA_H
 
-#ifdef PILA_IMPL_ESTATICA
+#ifdef PILA_IMP_ESTATICA
     #include "..\Pila_Imp_Estatica\Pila_Estatica.h"
 #endif
 
 #ifdef PILA_IMP_DINAMICA
     #include "..\Pila_Imp_Dinamica\Pila_Dinamica.h"
-    
 #endif
 
 #ifdef PILA_IMP_CIRCULAR_DINAMICA

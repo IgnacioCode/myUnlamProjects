@@ -31,9 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add library="../TDA/Lista_Imp_Dinamica/bin/Debug/libLista_Imp_Dinamica.a" />
+			<Add library="../Nodo/bin/Debug/libNodo.a" />
+		</Linker>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="misPruebas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="misPruebas.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
