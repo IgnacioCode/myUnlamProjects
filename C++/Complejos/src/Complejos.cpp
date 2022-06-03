@@ -1,7 +1,7 @@
 #include "Complejos.h"
 
 Complejos::Complejos(){
-
+    this->parteReal=this->parteImaginaria=0;
 }
 
 Complejos::Complejos(float a,float b){
