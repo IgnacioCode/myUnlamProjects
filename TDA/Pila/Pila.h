@@ -7,7 +7,7 @@
 
 #ifdef PILA_IMP_DINAMICA
     #include "..\Pila_Imp_Dinamica\Pila_Dinamica.h"
-    typedef Nodo* Pila;
+    
 #endif
 
 #ifdef PILA_IMP_CIRCULAR_DINAMICA

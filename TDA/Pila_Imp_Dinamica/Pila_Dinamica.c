@@ -1,4 +1,4 @@
-#include "Pila_Dinamica.h"
+#define PILA_IMP_DINAMICA
 #include "..\Pila\Pila.h"
 
 #define MIN(X,Y) ((X)>(Y)? (Y):(X))

@@ -5,8 +5,9 @@
 #include <stdlib.h>
 #include <memory.h>
 #include "..\..\Comun\Comun.h"
-
 #include "..\..\Nodo\Nodo.h"
+
+typedef Nodo* Pila;
 
 
 
