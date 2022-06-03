@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1654280488 source:f:\github\myunlamprojects\c++\testcomplejos\main.cpp
+	<iostream>
+	"..\Complejos\include\Complejos.h"
+
+1654280474 f:\github\myunlamprojects\c++\complejos\include\complejos.h
+	<iostream>
+	<cmath>
+

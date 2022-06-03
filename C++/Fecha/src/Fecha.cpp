@@ -2,7 +2,7 @@
 
 Fecha::Fecha(){
 
-    this.diaRel=0;
+    this->diaRel=0;
 
 }
 
