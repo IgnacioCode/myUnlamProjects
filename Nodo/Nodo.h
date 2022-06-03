@@ -10,7 +10,7 @@ typedef struct SNodo{
 
     void* elem;
     size_t tamElem;
-    struct Snodo* sig;
+    struct SNodo* sig;
 
 }Nodo;
 

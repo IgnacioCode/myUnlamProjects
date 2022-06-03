@@ -1,0 +1,7 @@
+1001|Pelotitas de Algodon|35|17.35
+1002|Leche La Serenisima|59|36.4
+1003|Barras de Chocolate|21|10.5
+1004|Lavandina|11|22
+1005|Galletitas de Chocolate|49|15.5
+
+

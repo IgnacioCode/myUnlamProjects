@@ -104,6 +104,25 @@ booleano eliminarDeListaOrdenada(Lista* pl, void* elem, size_t tamElem, Cmp cmp)
     return VERDADERO;
 }
 
+booleano eliminarDeListaFrente(Lista* pl, void* elem, size_t tamElem){
+
+    Nodo* nae=*pl;
+
+    if(!nae){
+        return VACIA;
+    }
+
+    *pl=nae->sig;
+    destruirNodo(nae,elem,tamElem);
+
+    return TODO_OK;
+
+}
+
+booleano listaVacia(const Lista* pl){
+    return !*pl? VERDADERO:FALSO;
+}
+
 void recorrerLista(Lista* pl,Accion accion,void* datosAccion){
 
     while(*pl){
@@ -175,9 +194,9 @@ int eliminarDuplicados(Lista* pl,Cmp cmp){
     Lista* plAct = pl;
     void* elemAnterior;
     Nodo* nae;
-    
+
     while(*pl){
-        
+
         elemAnterior = (*pl)->elem;
         plAct = &(*plAct)->sig;
         while(*plAct){
@@ -189,7 +208,7 @@ int eliminarDuplicados(Lista* pl,Cmp cmp){
             else{
                 plAct = &(*plAct)->sig;
             }
-            
+
         }
         pl = &(*pl)->sig;
         plAct = pl;

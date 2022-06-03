@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1654235629 source:f:\github\myunlamprojects\mispruebas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"misPruebas.h"
+
+1654236230 f:\github\myunlamprojects\mispruebas\mispruebas.h
+	"..\TDA\Lista\Lista.h"
+
+1654236178 f:\github\myunlamprojects\tda\lista\lista.h
+	"..\Lista_Imp_Estatica\Lista_Imp_Estatica.h"
+	"..\Lista_Imp_Dinamica\Lista_Dinamica.h"
+	"..\Lista_Imp_Dinamica_Doble\Lista_Dinamica_Doble.h"
+
+1653329466 f:\github\myunlamprojects\tda\lista_imp_dinamica\lista_dinamica.h
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	"..\..\Nodo\Nodo.h"
+	"..\..\Comun\Comun.h"
+
+1654236047 f:\github\myunlamprojects\nodo\nodo.h
+	<stddef.h>
+	<stdlib.h>
+	<memory.h>
+	"..\Comun\Comun.h"
+
+1654235803 f:\github\myunlamprojects\comun\comun.h
+
+1653570493 f:\github\myunlamprojects\tda\lista_imp_dinamica_doble\lista_dinamica_doble.h
+	"..\..\Nodo\NodoD.h"
+	"..\..\Comun\Comun.h"
+
+1653570653 f:\github\myunlamprojects\nodo\nodod.h
+	<stddef.h>
+
+1654236318 source:f:\github\myunlamprojects\mispruebas\mispruebas.c
+	"misPruebas.h"
+

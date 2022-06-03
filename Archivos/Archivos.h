@@ -6,6 +6,8 @@
 #include <string.h>
 #include <ctype.h>
 #include "..\Comun\Comun.h"
+#define PILA_IMP_DINAMICA
+#include "..\TDA\Pila\Pila.h"
 
 typedef struct{
 
