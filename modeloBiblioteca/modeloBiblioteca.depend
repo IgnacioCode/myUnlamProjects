@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1654292041 source:f:\github\myunlamprojects\modelobiblioteca\libros.c
+	"libros.h"
+
+1654291988 f:\github\myunlamprojects\modelobiblioteca\libros.h
+	<stdio.h>
+	<stdlib.h>
+
+1654291912 source:f:\github\myunlamprojects\modelobiblioteca\main.c
+	<stdio.h>
+	<stdlib.h>
+	"libros.h"
+

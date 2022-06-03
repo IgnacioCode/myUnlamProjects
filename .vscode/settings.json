@@ -16,6 +16,7 @@
         "lista_dinamica_doble.h": "c",
         "arbol_dinamico.h": "c",
         "nodoa.h": "c",
-        "arbol.h": "c"
+        "arbol.h": "c",
+        "libros.h": "c"
     }
 }
