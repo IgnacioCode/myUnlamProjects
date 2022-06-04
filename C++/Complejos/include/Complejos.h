@@ -22,7 +22,6 @@ class Complejos{
         Complejos operator *(const Complejos& z2)const;
         Complejos operator /(float& a);
 
-
         double modulo()const;
 
     protected:
