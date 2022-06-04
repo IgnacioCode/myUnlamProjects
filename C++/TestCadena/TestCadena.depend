@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1654358154 source:f:\github\myunlamprojects\c++\testcadena\main.cpp
+	<iostream>
+	"..\Cadena\include\Cadena.h"
+
+1654358936 f:\github\myunlamprojects\c++\cadena\include\cadena.h
+	<cstring>
+	<iostream>
+
