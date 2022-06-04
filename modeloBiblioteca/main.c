@@ -4,14 +4,21 @@
 
 void sumarDatos(int a);
 void actualizarStock(const char* archivoStock,const char* archivoActualizacion);
+void insertaHasta5Ordenada(Lista* pl,void* elem,size_t tamElem,Cmp cmp);
+
+int comparaVentasMayor(const void* l1,const void* l2){
+
+    Libro* libro1= (Libro*)l1;
+    Libro* libro2= (Libro*)l2;
+
+    return libro1->cantidad-libro2->cantidad;
+}
 
 int main(){
 
     creaArchivoStock();
 
     actualizarStock("archivoStockLibros.dat","nuevoStock.txt");
-
-
 
 
 }
@@ -25,7 +32,7 @@ void actualizarStock(const char* archivoStock,const char* archivoActualizacion){
     FILE* pfNue = fopen("temporalStock.temp","wb");
     FILE* pfE = fopen("archivoErrores.txt","wt");
 
-    int cantElemLista=0,comp,codigoValido;
+    int comp,codigoValido,i;
     Libro stockLeido,actualizacionLeida;
 
     fscanf(pfActu,"%[^|]|%d",actualizacionLeida.ISBN,&actualizacionLeida.cantidad);
@@ -42,7 +49,8 @@ void actualizarStock(const char* archivoStock,const char* archivoActualizacion){
             if(comp==0){
                 stockLeido.cantidad+=actualizacionLeida.cantidad;
                 fwrite(&stockLeido,sizeof(Libro),1,pfNue);
-                
+                insertaHasta5Ordenada(&listaTop5,&stockLeido,sizeof(Libro),comparaVentasMayor);
+
                 fscanf(pfActu,"\n%[^|]|%d",actualizacionLeida.ISBN,&actualizacionLeida.cantidad);
                 fread(&stockLeido,sizeof(Libro),1,pfStock);
             }
@@ -52,6 +60,7 @@ void actualizarStock(const char* archivoStock,const char* archivoActualizacion){
             }
             else{
                 fwrite(&stockLeido,sizeof(Libro),1,pfNue);
+                insertaHasta5Ordenada(&listaTop5,&stockLeido,sizeof(Libro),comparaVentasMayor);
                 fread(&stockLeido,sizeof(Libro),1,pfStock);
             }
         }
@@ -60,6 +69,7 @@ void actualizarStock(const char* archivoStock,const char* archivoActualizacion){
 
     while(!feof(pfStock)){
         fwrite(&stockLeido,sizeof(Libro),1,pfNue);
+        insertaHasta5Ordenada(&listaTop5,&stockLeido,sizeof(Libro),comparaVentasMayor);
         fread(&stockLeido,sizeof(Libro),1,pfStock);
     }
 
@@ -76,6 +86,25 @@ void actualizarStock(const char* archivoStock,const char* archivoActualizacion){
     remove(archivoStock);
     rename("temporalStock.temp",archivoStock);
 
+    printf("5 libros mas vendidos\n\n");    //printf("------------------------\n");
+    printf("-------ISBN------|Ventas\n");
+    int cantElem = cantElementosDeLista(&listaTop5);
+    for(i=0;i<cantElem;i++){
+        eliminarDeListaFrente(&listaTop5,&stockLeido,sizeof(Libro));
+        printf("%s|%d\n",stockLeido.ISBN,stockLeido.cantidad);
+    }
+
 
 }
 
+void insertaHasta5Ordenada(Lista* pl,void* elem,size_t tamElem,Cmp cmp){
+
+    if(cantElementosDeLista(pl)<5){
+        insertarEnListaOrdenada(pl,elem,tamElem,cmp);
+    }
+    else{
+        insertarEnListaOrdenada(pl,elem,tamElem,cmp);
+        eliminarDeListaFondo(pl,NULL,0);
+    }
+
+}

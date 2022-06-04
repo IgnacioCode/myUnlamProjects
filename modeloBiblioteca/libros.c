@@ -69,7 +69,7 @@ int comparaISBN(const char* c1,const char* c2){
 
 // ----------- Primitivas Nodo -----------
 
-booleano crearNodo(void* elem,size_t tamElem){
+Nodo* crearNodo(void* elem,size_t tamElem){
     Nodo* nue = (Nodo*)malloc(sizeof(Nodo));
     void* nueElem = malloc(tamElem);
 
@@ -85,10 +85,10 @@ booleano crearNodo(void* elem,size_t tamElem){
     nue->tamElem=tamElem;
     nue->sig=NULL;
 
-    return VERDADERO;
+    return nue;
 }
 
-void destruiurNodo(Nodo* nae,void* elem,size_t tamElem){
+void destruirNodo(Nodo* nae,void* elem,size_t tamElem){
     memcpy(elem,nae->elem,MIN(tamElem,nae->tamElem));
     free(nae->elem);
     free(nae);
@@ -102,7 +102,7 @@ void crearLista(Lista* pl){
 }
 
 booleano insertarEnListaOrdenada(Lista* pl,void*elem,size_t tamElem,Cmp cmp){
-    
+
     Nodo* nue =crearNodo(elem,tamElem);
 
     if(!nue){
@@ -112,6 +112,7 @@ booleano insertarEnListaOrdenada(Lista* pl,void*elem,size_t tamElem,Cmp cmp){
     while(*pl && cmp(nue->elem,(*pl)->elem)<0){
         pl=&(*pl)->sig;
     }
+
 
     nue->sig=*pl;
     *pl = nue;
@@ -125,13 +126,25 @@ void eliminarDeListaFondo(Lista* pl,void* elem,size_t tamElem){
     }
 
     while((*pl)->sig){
-        pl=(*pl)->sig;
+        pl=&(*pl)->sig;
     }
 
     Nodo* nae=*pl;
     *pl=NULL;
     destruirNodo(nae,elem,tamElem);
-    
+
+
+}
+
+void eliminarDeListaFrente(Lista* pl,void* elem,size_t tamElem){
+
+    if(!*pl){
+        return;
+    }
+
+    Nodo* nae=*pl;
+    *pl=nae->sig;
+    destruirNodo(nae,elem,tamElem);
 
 }
 
