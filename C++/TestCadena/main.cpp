@@ -10,9 +10,9 @@ int main(){
 
     Cadena cad1(linea);
     Cadena cad2(linea2);
-    Cadena cad3;
+    Cadena cad3=cad1+cad2;
 
-    cout << cad1+cad2;
+    cout << cad1 <<cad2;
 
     return 0;
 }

@@ -10,11 +10,11 @@ booleano verificaISBN(char* codigo){
     char* charAct = codigo;
 
     for(i=0;i<17;i++){
-        if(!leyoImpar && esLetra(*charAct)){
+        if(!leyoImpar && esNumero(*charAct)){
             sumaImpares+=charToInt(*charAct);
             leyoImpar=1;
         }
-        if(leyoImpar && esLetra(*charAct)){
+        else if(leyoImpar && esNumero(*charAct)){
             sumaPares+=charToInt(*charAct);
             leyoImpar=0;
         }
@@ -28,6 +28,10 @@ booleano verificaISBN(char* codigo){
 
 booleano esLetra(char c){
     return ((c>=65 && c<=90) || (c>=97 && c<=122) )? (VERDADERO):(FALSO);
+}
+
+booleano esNumero(char c){
+    return (c>=48 && c<=57)? (VERDADERO):(FALSO);
 }
 
 void creaArchivoStock(){
@@ -61,4 +65,81 @@ int comparaISBN(const char* c1,const char* c2){
     }
 
     return 0;
+}
+
+// ----------- Primitivas Nodo -----------
+
+booleano crearNodo(void* elem,size_t tamElem){
+    Nodo* nue = (Nodo*)malloc(sizeof(Nodo));
+    void* nueElem = malloc(tamElem);
+
+    if(!nue || !nueElem){
+        free(nue);
+        free(nueElem);
+        return FALSO;
+    }
+
+    memcpy(nueElem,elem,tamElem);
+
+    nue->elem=nueElem;
+    nue->tamElem=tamElem;
+    nue->sig=NULL;
+
+    return VERDADERO;
+}
+
+void destruiurNodo(Nodo* nae,void* elem,size_t tamElem){
+    memcpy(elem,nae->elem,MIN(tamElem,nae->tamElem));
+    free(nae->elem);
+    free(nae);
+}
+
+
+// --------- Primitivas Lista ---------
+
+void crearLista(Lista* pl){
+    *pl=NULL;
+}
+
+booleano insertarEnListaOrdenada(Lista* pl,void*elem,size_t tamElem,Cmp cmp){
+    
+    Nodo* nue =crearNodo(elem,tamElem);
+
+    if(!nue){
+        return FALSO;
+    }
+
+    while(*pl && cmp(nue->elem,(*pl)->elem)<0){
+        pl=&(*pl)->sig;
+    }
+
+    nue->sig=*pl;
+    *pl = nue;
+    return VERDADERO;
+}
+
+void eliminarDeListaFondo(Lista* pl,void* elem,size_t tamElem){
+
+    if(!*pl){
+        return;
+    }
+
+    while((*pl)->sig){
+        pl=(*pl)->sig;
+    }
+
+    Nodo* nae=*pl;
+    *pl=NULL;
+    destruirNodo(nae,elem,tamElem);
+    
+
+}
+
+int cantElementosDeLista(Lista* pl){
+    int cantElem=0;
+    while(*pl){
+        pl=&(*pl)->sig;
+        cantElem++;
+    }
+    return cantElem;
 }

@@ -22,20 +22,20 @@ Cadena::Cadena(char* str){
 
 Cadena Cadena::operator +(Cadena& cad2){
 
-    Cadena nuevaCadena;
+    char* nuevoPuntero;
 
-    nuevaCadena.cadena = new char[strlen(this->cadena)+strlen(cad2.cadena)+1];
+    nuevoPuntero = new char[strlen(this->cadena)+strlen(cad2.cadena)+1];
 
-    strcpy(nuevaCadena.cadena,this->cadena);
-    strcat(nuevaCadena.cadena,cad2.cadena);
+    strcpy(nuevoPuntero,this->cadena);
+    strcat(nuevoPuntero,cad2.cadena);
 
-    return nuevaCadena;
+    return Cadena(nuevoPuntero);
 
 }
 
-ostream& operator <<(ostream& os,Cadena cad){
+ostream& operator <<(ostream& os,Cadena& cad1){
 
-    os << cad.cadena;
+    os << cad1.cadena;
 
     return os;
 
