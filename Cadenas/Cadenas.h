@@ -18,7 +18,7 @@ typedef struct{
 }SecPal;
 
 void normalizar(const char* origen,const char* destino);
-void creaSecPal(SecPal* sl,char* origen);
+void creaSecPal(SecPal* sl,const char* origen);
 void leerPal(SecPal* sl,Palabra* pal);
 int finSecPal(SecPal* secuencia);
 void escribePal(SecPal* se,Palabra* pal);
@@ -29,5 +29,8 @@ void formateoMayusyMin(Palabra* pal);
 int esLetra(char letra);
 char aMayuscula(char caracter);
 char aMinuscula(char caracter);
+
+int miStrlen(const char* str);
+void miStrcpy(char* destino,const char* origen);
 
 #endif // CADENAS_H_INCLUDED

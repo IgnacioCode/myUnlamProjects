@@ -20,7 +20,7 @@ void leerPal(SecPal* sl,Palabra* pal){
 
 }
 
-void creaSecPal(SecPal* sl,char* origen){
+void creaSecPal(SecPal* sl,const char* origen){
 
     sl->cursor = origen;
 
@@ -130,5 +130,29 @@ void normalizar(const char* origen, const char* destino){
     }
 
     escribeCaracter(&se,'\0');
+
+}
+
+int miStrlen(const char* str){
+
+    const char* carAct=str;
+    int cantDigitos = 0;
+    while(*carAct!='\0'){
+        cantDigitos++;
+        carAct++;
+    }
+
+    return cantDigitos;
+}
+
+
+void miStrcpy(char* destino, const char* origen){
+
+    while(*origen!='\0'){
+        *destino=*origen;
+        destino++;
+        origen++;
+    }
+    *destino=*origen;
 
 }
