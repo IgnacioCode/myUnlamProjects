@@ -29,6 +29,8 @@ void recorrerArbolPre(Arbol* pa,Accion acc,void* datosAccion);  // Raiz - hIzq -
 void recorrerArbolEn(Arbol* pa,Accion acc,void* datosAccion);   // hIzq - Raiz - hDer
 void recorrerArbolPost(Arbol* pa,Accion acc,void* datosAccion); // hIzq - hDer - Raiz
 
+int alturaArbol(const Arbol* pa);
+
 booleano esArbolCompleto(const Arbol* pa);
 booleano esArbolBalanceado(const Arbol* pa);
 booleano esArbolAVL(const Arbol* pa);

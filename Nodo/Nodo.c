@@ -81,3 +81,4 @@ void destruirNodoA(NodoA* nae,void* elem,size_t tamElem){
     free(nae->elem);
     free(nae);
 }
+

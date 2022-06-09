@@ -3,6 +3,8 @@
 #include "..\Arbol\Arbol.h"
 
 void imprimirArbolRec(const Arbol* pa,ImprimirElemArbol imprimir,void* datosImprimir,int nivel);
+const Arbol* buscarRaizArbol(const Arbol* pa, void* elem,Cmp cmp);
+void eliminarRaizDeArbol(Arbol* pae);
 
 void crearArbol(Arbol* pa){
     *pa=NULL;
@@ -60,6 +62,85 @@ int insertarEnArbol(Arbol* pa, const void* elem, size_t tamElem,Cmp cmp,Actualiz
 
     return insertarEnArbol(comp <0? &(*pa)->hIzq:&(*pa)->hDer, elem, tamElem, cmp, actualizar);
 
+}
+
+booleano eliminarDeArbol(Arbol* pa, void* elem, size_t tamElem,Cmp cmp){
+    
+    Arbol* pae = (Arbol*)buscarRaizArbol(pa,elem,cmp);  //funciones privadas
+    //busca el nodo que tenga a el elemento "elem"
+    if(!pae){
+        return FALSO;
+    }
+
+    memcpy(elem,(*pae)->elem,MIN(tamElem,(*pae)->tamElem)); //lo copiamos
+    free((*pae)->elem); //borramos el elemento
+
+    eliminarRaizDeArbol(pae);  //funciones privadas
+
+    return VERDADERO;
+}
+
+const Arbol* buscarRaizArbol(const Arbol* pa, void* elem,Cmp cmp){
+
+    if(!*pa){
+        return NULL;
+    }
+
+    int comp = cmp(elem,(*pa)->elem);
+
+    if(comp==0){
+        return pa;
+    }
+
+    return buscarRaizArbol(comp<0?(*pa)->hIzq:(*pa)->hDer,elem,cmp);
+}
+
+void eliminarRaizDeArbol(Arbol* pae){
+
+    if(!(*pae)->hDer && !(*pae)->hIzq){
+        free(*pae);
+        *pae=NULL;
+        return;
+    }
+
+    int hI = alturaArbol(&(*pae)->hIzq);
+    int hD = alturaArbol(&(*pae)->hDer);
+
+    Arbol* par = hI>hD? mayorDeArbol(&(*pae)->hIzq) : menorDeArbol(&(*pae)->hDer);
+    (*pae)->elem = (*par)->elem;
+    (*pae)->tamElem = (*par)->tamElem;
+
+    eliminarRaizDeArbol(par);
+}
+
+int alturaArbol(const Arbol* pa){
+    if(!*pa){
+        return 0;
+    }
+
+    int aHi = alturaArbol(&(*pa)->hIzq); 
+    int aHd = alturaArbol(&(*pa)->hDer);
+
+    return MAX(aHi,aHd)+1;
+
+}
+
+Arbol* mayorDeArbol(Arbol* pa){
+    
+    if(!(*pa)->hDer){
+        return pa;
+    }
+
+    return mayorDeArbol(&(*pa)->hDer);
+}
+
+Arbol* menorDeArbol(Arbol* pa){
+    
+    if(!(*pa)->hIzq){
+        return pa;
+    }
+
+    return menorDeArbol(&(*pa)->hIzq);
 }
 
 void recorrerArbolPre(Arbol* pa,Accion acc,void* datosAccion){
