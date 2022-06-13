@@ -109,7 +109,7 @@ booleano buscarEnListaOrdenada(const Lista* pl,void* elem,size_t tamElem, Cmp cm
         return FALSO;
     }
 
-    nae = *pl;
+    NodoD* nae = *pl;
 
     while(nae->ant && cmp(elem,nae->elem) < 0){
         nae = nae->ant;
