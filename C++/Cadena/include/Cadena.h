@@ -15,6 +15,7 @@ class Cadena{
 
         Cadena operator +(Cadena& cad2);
         friend ostream& operator <<(ostream& os,Cadena& cad1);
+        friend istream& operator >>(istream& is,Cadena& cad1);
     private:
         char* cadena;
         static int cantDigitos(int num);

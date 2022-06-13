@@ -2,6 +2,9 @@
 
 #include "..\Lista\Lista.h"
 
+void recorrerListaIzquierda(Lista* pl,Accion accion,void* datosAccion);
+void recorrerListaDerecha(Lista* pl,Accion accion,void* datosAccion);
+
 void crearLista(Lista* pl){
     *pl=NULL;
 }
@@ -79,10 +82,10 @@ booleano eliminarDeListaOrdenada(Lista* pl, void* elem, size_t tamElem, Cmp cmp)
         return FALSO;
     }
 
-    if(nae->ant){
+    if(nae->ant){       //Casos de Borde inicio
         nae->ant->sig = nae->sig;
     }
-    if(nae->sig){
+    if(nae->sig){       //Casos de Borde final
         nae->sig->ant = nae->ant;
     }
     if(nae == *pl){
@@ -99,3 +102,64 @@ booleano eliminarDeListaOrdenada(Lista* pl, void* elem, size_t tamElem, Cmp cmp)
     return TODO_OK;
 
 }
+
+booleano buscarEnListaOrdenada(const Lista* pl,void* elem,size_t tamElem, Cmp cmp){
+
+    if(!*pl){
+        return FALSO;
+    }
+
+    nae = *pl;
+
+    while(nae->ant && cmp(elem,nae->elem) < 0){
+        nae = nae->ant;
+    }
+
+    while(nae->sig && cmp(elem,nae->elem) > 0 ){
+        nae = nae->sig;
+    }
+
+    if(cmp(elem,nae->elem)!=0){
+        return FALSO;
+    }
+    
+    memcpy(elem,nae->elem,MIN(tamElem,nae->tamElem));
+    return VERDADERO;
+
+}
+
+void recorrerLista(Lista* pl,Accion accion,void* datosAccion){
+
+    NodoD* pIzq = *pl;
+    NodoD* pDer = (*pl)->sig;
+
+    accion(*pl,datosAccion);
+
+    recorrerListaIzquierda(&pIzq,accion,datosAccion);
+    recorrerListaDerecha(&pDer,accion,datosAccion);
+
+}
+
+void recorrerListaIzquierda(Lista* pl,Accion accion, void* datosAccion){
+
+    accion(*pl,datosAccion);
+
+    if(!(*pl)->ant){
+        return;
+    }
+
+    recorrerListaIzquierda((*pl)->ant,accion,datosAccion);
+
+}
+
+void recorrerListaDerecha(Lista* pl,Accion accion, void* datosAccion){
+
+    accion(*pl,datosAccion);
+
+    if(!(*pl)->sig){
+        return;
+    }
+
+    recorrerListaDerecha((*pl)->sig,accion,datosAccion);
+}
+

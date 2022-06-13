@@ -1,7 +1,6 @@
 #include "..\include\Cadena.h"
 
 Cadena::Cadena(){
-
     this->cadena=NULL;
 }
 
@@ -38,5 +37,13 @@ ostream& operator <<(ostream& os,Cadena& cad1){
     os << cad1.cadena;
 
     return os;
+
+}
+
+istream& operator >>(istream& is,Cadena& cad1){
+
+    is >> cad1.cadena;
+
+    return is;    
 
 }
