@@ -194,3 +194,72 @@ void imprimirArbolRec(const Arbol* pa,ImprimirElemArbol imprimir,void* datosImpr
 
 
 }
+
+booleano esArbolCompleto(const Arbol* pa){
+    
+    int cantNodosCalculados = pow(2,alturaArbol(pa))-1;
+    int cantNodosReales = contarNodos(pa);
+
+    return cantNodosCalculados==cantNodosReales;
+    
+}
+
+int contarNodos(const Arbol* pa){
+
+    if(!*pa){
+        return 0;
+    }
+
+    return contarNodos(&(*pa)->hIzq) + contarNodos (&(*pa)->hDer) + 1;
+    //Se cuentan los nodos de todos los hijos
+
+}
+
+booleano esArbolAVL(const Arbol* pa){
+
+    //El AVL es que la diferencia entre la altura de los hijos es 0 o 1
+    if(!*pa){
+        return falso;
+    }
+
+    int hI = alturaArbol(&(*pa)->hIzq);
+    int hD = alturaArbol(&(*pa)->hDer);
+
+    if(ABS(hI-hD)>1){
+        return FALSO;
+    }    
+
+    return esArbolAVL(&(*pa)->hIzq) && esArbolAVL(&(*pa)->hDer);
+
+}
+
+booleano esArbolBalanceado(const Arbol* pa){
+
+    // Vamos a contar que sea balanceado pero hasta el nivel anterior
+    // Primero calculamos la altura total y luego le mandamos a contar la altura 
+    // a los hijos pero hasta un nivel menos que el del padre
+
+    int h = alturaArbol(pa);
+    if(h<=2){
+        return VERDADERO;
+    }
+    int cantNodosAntUltimo=pow(2,h-1)-1;
+    int cantNodosTotal = contarNodosHasta(pa,h-2); //Cuenta hasta el nivel indicado
+
+    return cantNodosAntUltimo==cantNodosTotal;
+
+}
+
+int contarNodosHasta(const Arbol* pa,int nivel){
+
+    if(!*pa){
+        return 0;
+    }
+    if(!nivel){
+        return 1;
+    }
+
+    
+    return contarNodosHasta(&(*pa)->hIzq,nivel-1) + contarNodosHasta(&(*pa)->hDer,nivel-1) + 1;
+
+}

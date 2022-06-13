@@ -30,9 +30,11 @@ void recorrerArbolEn(Arbol* pa,Accion acc,void* datosAccion);   // hIzq - Raiz -
 void recorrerArbolPost(Arbol* pa,Accion acc,void* datosAccion); // hIzq - hDer - Raiz
 
 int alturaArbol(const Arbol* pa);
+int contarNodos(const Arbol* pa);
+int contarNodosHasta(const Arbol* pa,int nivel);
 
-booleano esArbolCompleto(const Arbol* pa);
-booleano esArbolBalanceado(const Arbol* pa);
+booleano esArbolCompleto(const Arbol* pa);      //Arbol que tiene todos los hijos completos
+booleano esArbolBalanceado(const Arbol* pa);    
 booleano esArbolAVL(const Arbol* pa);
 TipoArbol tipoArbol(const Arbol* pa);
 void imprimirArbol(const Arbol* pa,ImprimirElemArbol imprimir,void* datosImprimir);

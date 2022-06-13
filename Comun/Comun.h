@@ -9,6 +9,7 @@ typedef enum{
 
 #define MIN(X,Y) ((X)>(Y)? (Y):(X))
 #define MAX(X,Y) ((X)>(Y)? (X):(Y))
+#define ABS(X) ((X>0)? (X):(-X))
 
 #define TODO_OK 0
 #define NO_MEMORY 1
