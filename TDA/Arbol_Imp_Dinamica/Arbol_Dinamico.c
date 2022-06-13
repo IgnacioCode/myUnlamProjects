@@ -219,7 +219,7 @@ booleano esArbolAVL(const Arbol* pa){
 
     //El AVL es que la diferencia entre la altura de los hijos es 0 o 1
     if(!*pa){
-        return falso;
+        return FALSO;
     }
 
     int hI = alturaArbol(&(*pa)->hIzq);
