@@ -18,6 +18,8 @@
         "nodoa.h": "c",
         "arbol.h": "c",
         "libros.h": "c",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "new": "cpp",
+        "ostream": "cpp"
     }
 }
