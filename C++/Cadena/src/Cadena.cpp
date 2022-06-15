@@ -1,4 +1,5 @@
 #include "..\include\Cadena.h"
+#include "..\FueraDeRangoExc.h"
 
 Cadena::Cadena(){
     cadena = new char[1];
@@ -77,6 +78,13 @@ Cadena& Cadena::operator +=(const Cadena& cad2){
     return *this;
 }
 
+char Cadena::operator [](int i) const{
+    if(i>=0 && i>(int)strlen(cadena)){
+        throw FueraDeRangoExc("Indice fuera de Rango");
+    }
+    return cadena[i];
+}
+
 Cadena operator +(const Cadena& cad1,const Cadena& cad2){ //friend
 
     char* nuevoPuntero;
@@ -115,14 +123,12 @@ istream& operator >>(istream& is,Cadena& cad1){ //friend
     queue<char> cola;   //Template de cola (queue) es como un void "reemplazable"
     char c;
     int i=0;
-    
+
     do{
         c = is.get();
         cola.push(c);
 
     }while(c!='\n' && c!= EOF);
-    
-    cola.size();
 
     if(strlen(cad1.cadena)!=cola.size()){
         delete [] cad1.cadena;
@@ -148,4 +154,25 @@ int Cadena::cantDigitos(int num){
        cantDigitos++;
     }while(num>0);
     return cantDigitos;
+}
+
+bool Cadena::esEnteroPositivo(){
+
+    int largoCadena = strlen(cadena);
+
+    if( !cadena[0] || cadena[0]=='-' || cadena[0]<'0' || cadena[0]>'9'){
+        return false;
+    }
+
+    for(int i=0;largoCadena;i++){
+        if(cadena[i]<'0' || cadena[i]>'9'){
+            return false;
+        }
+    }
+
+    return true;
+}
+
+unsigned Cadena::longitud()const{
+    return strlen(cadena);
 }

@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1655253797 source:f:\github\myunlamprojects\c++\testpersona\main.cpp
+	<iostream>
+	"..\Persona\Persona.h"
+	"..\Cadena\include\Cadena.h"
+
+1655251755 f:\github\myunlamprojects\c++\persona\persona.h
+	"..\Cadena\include\Cadena.h"
+	"..\Fecha\include\Fecha.h"
+
+1655253462 f:\github\myunlamprojects\c++\cadena\include\cadena.h
+	<string.h>
+	<iostream>
+	<queue>
+	"..\FueraDeRangoExc.h"
+
+1655253444 f:\github\myunlamprojects\c++\cadena\fueraderangoexc.h
+	"include\Cadena.h"
+
+1649524606 f:\github\myunlamprojects\c++\fecha\include\fecha.h
+

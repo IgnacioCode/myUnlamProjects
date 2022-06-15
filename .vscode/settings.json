@@ -20,6 +20,7 @@
         "libros.h": "c",
         "iosfwd": "cpp",
         "new": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "system_error": "cpp"
     }
 }
