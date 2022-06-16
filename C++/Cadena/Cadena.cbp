@@ -17,6 +17,7 @@
 					<Add option="-Wall" />
 					<Add option="-g" />
 					<Add directory="include" />
+					<Add directory="./" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -30,14 +31,21 @@
 					<Add option="-Wall" />
 					<Add option="-O2" />
 					<Add directory="include" />
+					<Add directory="./" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="include/Cadena.h" />
-		<Unit filename="src/Cadena.cpp" />
+		<Unit filename="FueraDeRangoExc.cpp" />
+		<Unit filename="FueraDeRangoExc.h" />
+		<Unit filename="include/Cadena.h">
+			<Option weight="100" />
+		</Unit>
+		<Unit filename="src/Cadena.cpp">
+			<Option weight="100" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
