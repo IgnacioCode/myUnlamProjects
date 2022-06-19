@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1655394757 source:f:\github\myunlamprojects\ejerciciofede\arbol.c
+	"Arbol.h"
+
+1655394749 f:\github\myunlamprojects\ejerciciofede\arbol.h
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+
+1655392750 source:f:\github\myunlamprojects\ejerciciofede\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Arbol.h"
+
