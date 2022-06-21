@@ -21,7 +21,7 @@ int insertarEnListaOrdenada(Lista* pl, const void* elem, size_t tamElem, Cmp cmp
            act = act->ant;
         }
 
-        while(act->sig && cmp(elem,act->sig)>0){    //Avanza para la derecha hasta encontrar el correcto
+        while(act->sig && cmp(elem,act->elem)>0){    //Avanza para la derecha hasta encontrar el correcto
             act = act->sig;
         }
 

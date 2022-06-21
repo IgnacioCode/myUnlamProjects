@@ -1,14 +1,27 @@
 # depslib dependency file v1.0
-1655394757 source:f:\github\myunlamprojects\ejerciciofede\arbol.c
+1655774288 source:f:\github\myunlamprojects\ejerciciofede\arbol.c
 	"Arbol.h"
 
-1655394749 f:\github\myunlamprojects\ejerciciofede\arbol.h
+1655773710 f:\github\myunlamprojects\ejerciciofede\arbol.h
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	"Comun.h"
+
+1655774408 source:f:\github\myunlamprojects\ejerciciofede\main.c
+	<stdio.h>
+	<stdlib.h>
+	"listaDoble.h"
+	"Arbol.h"
+
+1655773991 source:f:\github\myunlamprojects\ejerciciofede\listadoble.c
+	"listaDoble.h"
+
+1655773245 f:\github\myunlamprojects\ejerciciofede\listadoble.h
+	"Comun.h"
 	<stddef.h>
 	<stdlib.h>
 	<string.h>
 
-1655392750 source:f:\github\myunlamprojects\ejerciciofede\main.c
-	<stdio.h>
-	<stdlib.h>
-	"Arbol.h"
+1655772214 f:\github\myunlamprojects\ejerciciofede\comun.h
 

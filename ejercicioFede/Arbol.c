@@ -140,3 +140,16 @@ void imprimeArbolNivel(const Arbol* pa,int nivel,ImpFunc imprimir,const void* da
     imprimir((*pa)->elem,datosImprimir,nivel);
     imprimeArbolNivel(&(*pa)->hIzq,nivel+1,imprimir,datosImprimir);
 }
+
+void vaciarArbol(Arbol* pa){
+
+    if(!*pa){
+        return;
+    }
+
+    vaciarArbol(&(*pa)->hIzq);
+    vaciarArbol(&(*pa)->hDer);
+    destruirNodoA(*pa,NULL,0);
+
+    *pa=NULL;
+}

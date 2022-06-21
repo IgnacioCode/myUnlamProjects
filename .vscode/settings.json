@@ -22,6 +22,8 @@
         "new": "cpp",
         "ostream": "cpp",
         "system_error": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "stddef.h": "c",
+        "listadoble.h": "c"
     }
 }
