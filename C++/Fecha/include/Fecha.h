@@ -28,10 +28,12 @@ class Fecha
         
         bool esFechaValida(const Fecha& otraFecha) const;
         static bool esFechaValida(int dia,int mes,int anio);
+        static bool esBisiesto(int anio);
     private:
         int diaRel;
-        int cantDiaMesAcum(int mes);
+        static int cantDiaMesAcum(int mes, int anio);
         static int cantDiaMes(int mes,int anio);
+        
         
 
 };
