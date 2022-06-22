@@ -17,6 +17,7 @@
 					<Add option="-Wall" />
 					<Add option="-g" />
 					<Add directory="include" />
+					<Add directory="./" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -30,12 +31,15 @@
 					<Add option="-Wall" />
 					<Add option="-O2" />
 					<Add directory="include" />
+					<Add directory="./" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 				</Linker>
 			</Target>
 		</Build>
+		<Unit filename="FechaExc.cpp" />
+		<Unit filename="FechaExc.h" />
 		<Unit filename="include/Fecha.h" />
 		<Unit filename="src/Fecha.cpp" />
 		<Extensions>

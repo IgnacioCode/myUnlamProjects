@@ -22,8 +22,8 @@ class Fecha
 
         int difEnDias(const Fecha& otraFecha) const;
 
-        int operator >(const Fecha& otraFecha) const;
-        int operator <(const Fecha& otraFecha) const;
+        bool operator >(const Fecha& otraFecha) const;
+        bool operator <(const Fecha& otraFecha) const;
         int operator -(const Fecha& otraFecha) const;
         
         bool esFechaValida(const Fecha& otraFecha) const;

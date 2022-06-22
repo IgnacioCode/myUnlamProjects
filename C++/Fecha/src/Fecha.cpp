@@ -58,3 +58,15 @@ int Fecha::cantDiaMesAcum(int mes, int anio){
 bool Fecha::esBisiesto(int anio){
     return anio%4 == 0 && (anio%100 != 0 || anio%400 == 0);
 }
+
+int Fecha::operator -(const Fecha& otraFecha)const{
+    return this->diaRel - otraFecha.diaRel;
+}
+
+bool Fecha::operator >(const Fecha& otraFecha) const{
+    return this->diaRel > otraFecha.diaRel;
+}
+
+bool Fecha::operator <(const Fecha& otraFecha) const{
+    return this->diaRel < otraFecha.diaRel;
+}

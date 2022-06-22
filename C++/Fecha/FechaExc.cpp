@@ -5,8 +5,5 @@ FechaExc::FechaExc(const Cadena& mensaje){
 }
 
 const Cadena& FechaExc::getMensaje()const{
-
     return this->mensaje;
-
-
 }
