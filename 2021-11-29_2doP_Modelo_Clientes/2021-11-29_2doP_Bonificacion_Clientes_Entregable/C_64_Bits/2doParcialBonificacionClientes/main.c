@@ -16,6 +16,8 @@ booleano buscarEnArbol_ALU(Arbol* pa,void* elem, size_t tamElem, Cmp cmp);
 booleano insertarEnArbol_ALU(Arbol* pa,void* elem, size_t tamElem, Cmp cmp);
 void crearArbol_ALU(Arbol* pa);
 NodoA* crearNodoA_ALU(void* elem,size_t tamElem);
+void mostrarIndices(const char* archivo);
+
 
 int comparaIndicesOrden_ALU(const void* i1,const void* i2){
 	Indice* indice1 = (Indice*)i1;
@@ -37,6 +39,8 @@ int main()
 	generarIndiceArchivoClientes();
 	generarArchivoVentas();
 
+	mostrarIndices("Clientes.idx");
+	puts("-----------------");
 	mostrarArchivoClientes();
 	puts("\n");
 
@@ -89,6 +93,7 @@ void bonificarClientes_ALU(const char* clientes, const char* clientesInd, const 
 		}
 
 		if(sumaCompras>100000){
+
 			if(sumaCompras > 300000){
 				porDescuento = 20;
 			}
@@ -101,23 +106,18 @@ void bonificarClientes_ALU(const char* clientes, const char* clientesInd, const 
 
 			strcpy(indiceAux.codCliente,cdoClienteAnt);
 
-
 			buscarEnArbol_ALU(&arbolIndices,&indiceAux,sizeof(Indice),comparaIndicesCliente_ALU); //Buscar indice del cliente
 			fseek(pfClientes,indiceAux.nroReg*sizeof(Cliente),SEEK_SET);	//mover cursor hasta el indice encontrado
 			fread(&clienteLeido,sizeof(Cliente),1,pfClientes);
 
 			clienteLeido.porcBonif = porDescuento;
-			fseek(pfClientes,-sizeof(Cliente),SEEK_CUR);
+			fseek(pfClientes,-1*sizeof(Cliente),SEEK_CUR);
 			fwrite(&clienteLeido,sizeof(Cliente),1,pfClientes);
 		}
 
 
 
 	}
-
-	fclose(pfClientes);
-	fclose(pfVentas);
-	fclose(pfIndices);
 
 }
 
@@ -141,14 +141,8 @@ booleano insertarEnArbol_ALU(Arbol* pa,void* elem, size_t tamElem, Cmp cmp){
 	if(comp == 0){
 		return falso; // duplicado
 	}
-	else if(comp < 0){
-		insertarEnArbol_ALU(&(*pa)->hIzq,elem,tamElem,cmp);
-	}
-	else if(comp > 0){
-		insertarEnArbol_ALU(&(*pa)->hDer,elem,tamElem,cmp);
-	}
 
-	return verdadero;
+	return insertarEnArbol_ALU(comp<0?&(*pa)->hIzq:&(*pa)->hDer,elem,tamElem,cmp);
 
 }
 
@@ -164,24 +158,22 @@ booleano buscarEnArbol_ALU(Arbol* pa,void* elem, size_t tamElem, Cmp cmp){
 		memcpy(elem,(*pa)->elem,MIN(tamElem,(*pa)->tamElem));
 		return verdadero;
 	}
-	/*else if(comp < 0){
-		buscarEnArbol_ALU(&(*pa)->hIzq,elem,tamElem,cmp);
-	}
-	else if(comp > 0){
-		buscarEnArbol_ALU(&(*pa)->hDer,elem,tamElem,cmp);
-	}*/
 
-    return buscarEnArbol_ALU(comp<0?&(*pa)->hIzq:&(*pa)->hDer,elem,tamElem,cmp);
+	return buscarEnArbol_ALU(comp<0?&(*pa)->hIzq:&(*pa)->hDer,elem,tamElem,cmp);
+
 }
 
 void cargarArchivoPreEnArbol_ALU(FILE* pf,Arbol* pa,size_t tamElem,Cmp cmp){
 
 	char regLeido[tamElem];
 
+	int i=0;
 	fread(regLeido,tamElem,1,pf);
 	while(!feof(pf)){
+        printf("\n inserte el indice numero : %d\n",i);
 		insertarEnArbol_ALU(pa,regLeido,tamElem,cmp);
 		fread(regLeido,tamElem,1,pf);
+        i++;
 	}
 
 
@@ -205,4 +197,15 @@ NodoA* crearNodoA_ALU(void* elem,size_t tamElem){
 	nue->hIzq=NULL;
 	nue->hDer=NULL;
 	return nue;
+}
+
+void mostrarIndices(const char* archivo){
+	Indice indiceLeido;
+	FILE* pf = fopen(archivo,"rb");
+	fread(&indiceLeido,sizeof(Indice),1,pf);
+	while(!feof(pf)){
+		printf("%-16s|%d\n",indiceLeido.codCliente,indiceLeido.nroReg);
+		fread(&indiceLeido,sizeof(Indice),1,pf);
+	}
+	fclose(pf);
 }

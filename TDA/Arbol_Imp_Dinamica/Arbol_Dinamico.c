@@ -1,5 +1,11 @@
 #define TDA_ARBOL_IMP_DINAMICA
 
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
 #include "..\Arbol\Arbol.h"
 
 void imprimirArbolRec(const Arbol* pa,ImprimirElemArbol imprimir,void* datosImprimir,int nivel);
@@ -261,5 +267,26 @@ int contarNodosHasta(const Arbol* pa,int nivel){
 
     
     return contarNodosHasta(&(*pa)->hIzq,nivel-1) + contarNodosHasta(&(*pa)->hDer,nivel-1) + 1;
+
+}
+
+
+
+void cargarArchivoEnArbol(FILE* pf, Arbol* pa, size_t tamElem, Cmp cmp, int li, int ls){
+
+    char buffer[tamElem];
+    
+    if(li > ls){
+        return;
+    }
+
+    int m = (li+ls)/2;
+    fseek(pf,m*tamElem,SEEK_SET);
+    fread(buffer,tamElem,1,pf);
+
+    insertarEnArbol(pa,buffer,tamElem,cmp,NULL);
+
+    cargarArchivoEnArbol(pf,pa,tamElem,cmp,li,m-1);
+    cargarArchivoEnArbol(pf,pa,tamElem,cmp,m+1,ls);
 
 }

@@ -1,8 +1,9 @@
 #ifndef ARBOL_H
 #define ARBOL_H
 
-#include "..\..\Comun\Comun.h"
+#include <stdio.h>
 
+#include "..\..\Comun\Comun.h"
 
 
 #ifdef TDA_ARBOL_IMP_DINAMICA
@@ -34,10 +35,13 @@ int contarNodos(const Arbol* pa);
 int contarNodosHasta(const Arbol* pa,int nivel);
 
 booleano esArbolCompleto(const Arbol* pa);      //Arbol que tiene todos los hijos completos
-booleano esArbolBalanceado(const Arbol* pa);    
+booleano esArbolBalanceado(const Arbol* pa);
 booleano esArbolAVL(const Arbol* pa);
 TipoArbol tipoArbol(const Arbol* pa);
 void imprimirArbol(const Arbol* pa,ImprimirElemArbol imprimir,void* datosImprimir);
+
+Arbol* mayorDeArbol(Arbol* pa);
+Arbol* menorDeArbol(Arbol* pa);
 
 /// -------------------- PRIMITIVAS --------------------
 
