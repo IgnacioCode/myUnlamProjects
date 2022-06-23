@@ -8,7 +8,7 @@ class Persona{
 
     public:
         Persona();
-        Persona(const Cadena& dni,const Cadena& nombre, const Cadena& apellido, const Fecha& fechaNacimiento, char sexo);
+        
 
         const Cadena& getDNI()const;
         const Cadena& getNombre()const;
@@ -22,6 +22,8 @@ class Persona{
         void setFechaNacimiento(const Fecha& fechaNacimiento);
         void setSexo(char sexo);
 
+        friend class PersonaBuilder;
+
     private:
         Cadena dni;
         Cadena nombre;
@@ -29,6 +31,7 @@ class Persona{
         Fecha fechaNacimiento; 
         char sexo;
 
+        Persona(const Cadena& dni,const Cadena& nombre, const Cadena& apellido, const Fecha& fechaNacimiento, char sexo);
         static bool validarDNI(Cadena dni);
 };
 

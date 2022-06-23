@@ -1,21 +1,31 @@
 # depslib dependency file v1.0
-1655253797 source:f:\github\myunlamprojects\c++\testpersona\main.cpp
+1655947290 source:f:\github\myunlamprojects\c++\testpersona\main.cpp
 	<iostream>
 	"..\Persona\Persona.h"
 	"..\Cadena\include\Cadena.h"
+	"..\Persona\PersonaExc.h"
+	"..\Persona\PersonaBuilder.h"
 
-1655251755 f:\github\myunlamprojects\c++\persona\persona.h
+1655929494 f:\github\myunlamprojects\c++\persona\persona.h
 	"..\Cadena\include\Cadena.h"
 	"..\Fecha\include\Fecha.h"
 
-1655253462 f:\github\myunlamprojects\c++\cadena\include\cadena.h
+1655254055 f:\github\myunlamprojects\c++\cadena\include\cadena.h
 	<string.h>
 	<iostream>
 	<queue>
-	"..\FueraDeRangoExc.h"
 
 1655253444 f:\github\myunlamprojects\c++\cadena\fueraderangoexc.h
 	"include\Cadena.h"
 
-1649524606 f:\github\myunlamprojects\c++\fecha\include\fecha.h
+1655927002 f:\github\myunlamprojects\c++\fecha\include\fecha.h
+	<iostream>
+
+1655252703 f:\github\myunlamprojects\c++\persona\personaexc.h
+	"..\Cadena\include\Cadena.h"
+
+1655947669 f:\github\myunlamprojects\c++\persona\personabuilder.h
+	"..\Cadena\include\Cadena.h"
+	"..\Fecha\include\Fecha.h"
+	"Persona.h"
 

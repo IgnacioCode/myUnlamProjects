@@ -38,6 +38,8 @@
 		</Build>
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
+		<Unit filename="PersonaBuilder.cpp" />
+		<Unit filename="PersonaBuilder.h" />
 		<Unit filename="PersonaExc.cpp" />
 		<Unit filename="PersonaExc.h" />
 		<Extensions>

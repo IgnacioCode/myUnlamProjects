@@ -5,9 +5,10 @@ Persona::Persona(){
 
 }
 
-Persona::Persona(const Cadena& dni,const Cadena& nombre, const Cadena& apellido, const Fecha& fechaNacimiento, char sexo){
+Persona::Persona(const Cadena& dni,const Cadena& nombre, const Cadena& apellido, const Fecha& fechaNacimiento, char sexo)
+:dni(dni){
 
-    setDNI(dni);
+    //setDNI(dni);
     setNombre(nombre);
     setApellido(apellido);
     setFechaNacimiento(fechaNacimiento);
@@ -59,7 +60,7 @@ bool Persona::validarDNI(Cadena dni){
     }
     else{
         if(!dni.esEnteroPositivo()){
-            throw PersonaExc("DNI Invalido: " + dni + "no es un numero");
+            throw PersonaExc("DNI Invalido: " + dni + " no es un numero");
         }
     }
 
