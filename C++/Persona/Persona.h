@@ -23,7 +23,8 @@ class Persona{
         void setSexo(char sexo);
 
         friend class PersonaBuilder;
-
+    protected:
+        Persona(const Cadena& dni,const Cadena& nombre, const Cadena& apellido, const Fecha& fechaNacimiento, char sexo);
     private:
         Cadena dni;
         Cadena nombre;
@@ -31,7 +32,7 @@ class Persona{
         Fecha fechaNacimiento; 
         char sexo;
 
-        Persona(const Cadena& dni,const Cadena& nombre, const Cadena& apellido, const Fecha& fechaNacimiento, char sexo);
+        
         static bool validarDNI(Cadena dni);
 };
 

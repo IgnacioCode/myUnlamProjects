@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1656098106 source:f:\github\myunlamprojects\c++\plano\punto.cpp
+	"Punto.h"
+
+1656097599 f:\github\myunlamprojects\c++\plano\punto.h
+	<iostream>
+
+1656098501 source:f:\github\myunlamprojects\c++\plano\recta.cpp
+	"Recta.h"
+	<cmath>
+
+1656097945 f:\github\myunlamprojects\c++\plano\recta.h
+	<iostream>
+	"Punto.h"
+
