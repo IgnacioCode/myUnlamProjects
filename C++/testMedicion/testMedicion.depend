@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1656163641 source:f:\github\myunlamprojects\c++\testmedicion\main.cpp
+	<iostream>
+	"..\Mediciones\Medicion.h"
+	"..\Mediciones\unidadExc.h"
+
+1656164172 f:\github\myunlamprojects\c++\mediciones\medicion.h
+	<iostream>
+
+1656107768 f:\github\myunlamprojects\c++\mediciones\unidadexc.h
+

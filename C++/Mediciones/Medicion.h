@@ -12,12 +12,12 @@ class Medicion
         Medicion(const float medicion,const char* unidad);
         ~Medicion();
 
-        float getMedicion();
-        char* getUnidad();
+        float getMedicion()const;
+        char* getUnidad()const;
 
         Medicion operator -(Medicion& med2);
         friend Medicion operator +(float num,Medicion& med2);
-        friend ostream& operator <<(ostream& os,Medicion& med);
+        friend ostream& operator <<(ostream& os,const Medicion& med);
     protected:
 
     private:
