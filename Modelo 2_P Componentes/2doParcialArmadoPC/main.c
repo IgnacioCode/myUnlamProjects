@@ -9,6 +9,7 @@
 #define ERROR_ALU 404
 /**/
 
+#define MIN(X,Y) (X>Y? Y:X)
 
 #include "../TDAArbolImplDinamica/TDAArbolImplDinamica.h"
 #include "../TDAArbol/TDAArbol.h"
@@ -92,7 +93,7 @@ int actualizarComponentes_ALU(const char* pathComponentes, const char* pathArmad
 	crearLista_ALU(&listaArmados);
 
 	cargarArchivoEnLista_ALU(&listaArmados,pfArmados);
-	cargarArchivoEnArbolOrd_ALU(&arbolIndices,pfIndices);
+	cargarArchivoEnArbolOrd_ALU(&arbolIndices,pfIndices,sizeof(Componente),comparaComponentes);
 	eliminaDuplicados_ALU(&listaArmados,comparaArmados,sumaArmados); //Hacer en casa
 	
 
@@ -120,6 +121,37 @@ void crearArbol(Arbol* pa){
 	*pa = NULL;
 }
 
+booleano insertarEnArbol_ALU(Arbol* pa,void* elem,size_t tamElem,Cmp cmp){
+	if(!*pa){
+		NodoA* nue = crearNodoA(elem,tamElem);
+		if(!nue){
+			return FALSO;
+		}
+		*pa = nue;
+		return VERDADERO;
+	}
+
+	int comp = cmp(elem,(*pa)->elem);
+	return insertarEnArbol_ALU(comp<0?&(*pa)->hIzq:(*pa)->hDer,elem,tamElem,cmp);
+}
+
+booleano buscarEnArbol_ALU(Arbol*pa, void* elem,size_t tamElem,Cmp cmp){
+
+	if(!*pa){
+		return FALSO;
+	}
+
+	int comp = cmp(elem,(*pa)->elem);
+	if(comp==0){
+		memcpy(elem,(*pa)->elem,MIN(tamElem,(*pa)->elem));
+		return VERDADERO;
+	}
+	else{
+		return buscarEnArbol_ALU(comp<0?&(*pa)->hIzq:&(*pa)->hDer,elem,tamElem,cmp);
+	}
+
+}
+
 void crearLista_ALU(Lista* pl){
 	*pl = NULL;
 }
@@ -133,10 +165,29 @@ void cargarArchivoEnLista_ALU(Lista* pl, FILE* pf){
 	}
 }
 
-void cargarArchivoEnArbolOrd_ALU(Arbol* pa, FILE* pf){
+void cargarArchivoEnArbolOrd_ALU(Arbol* pa, FILE* pf,size_t tamElem, Cmp cmp){
 
+	int ini=0,fin;
+	fseek(pf,0,SEEK_END);
+	fin = (ftell(pf)/tamElem) - 1;
+	cargaElementoMedio_ALU(ini,fin,pf,pa,tamElem,cmp);
 
-	
+}
+
+void cargaElementoMedio_ALU(int ini, int fin, FILE* pf, Arbol* pa, size_t tamElem, Cmp cmp){
+
+	if(ini > fin){
+		return;
+	}
+
+	char buffer[tamElem];
+	int medio = (ini+fin)/2;
+	fseek(pf,(medio)*tamElem,SEEK_SET);
+	fread(buffer,tamElem,1,pf);
+	insertarEnArbol_ALU(pa,buffer,tamElem,cmp);
+	cargaElementoMedio_ALU(ini,medio-1,pf,pa,tamElem,cmp);
+	cargaElementoMedio_ALU(medio+1,fin,pf,pa,tamElem,cmp);
+
 }
 
 booleano insertarEnListaFondo_ALU(Lista* pl,void* elem, size_t tamElem){
