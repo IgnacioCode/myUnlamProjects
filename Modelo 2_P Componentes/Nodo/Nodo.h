@@ -6,7 +6,7 @@
 
 typedef struct SNodo
 {
-	void* dato;
+	void* elem;
 	size_t tamElem;
 	struct SNodo* sig;
 }

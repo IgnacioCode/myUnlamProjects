@@ -12,7 +12,7 @@ int main(){
     cout << v1.agregar(ve1,sizeof(ve1)/sizeof(ve1[0]))<<endl;
     cout << v2 << endl;
     v3 = v1+v2;
-    //v3 = v3+14;
+    v3 = v3+14;
     cout << v3 << endl;
     return 0;
 }

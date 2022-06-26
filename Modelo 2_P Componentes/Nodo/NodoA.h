@@ -6,7 +6,7 @@
 
 typedef struct SNodoA
 {
-	void* dato;
+	void* elem;
 	size_t tamElem;
 	struct SNodoA* hIzq;
 	struct SNodoA* hDer;

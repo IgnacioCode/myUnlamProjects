@@ -80,7 +80,7 @@ int actualizarComponentes_alu(const char* pathComponentes, const char* pathArmad
 	FILE* pfArmados=fopen(pathArmadoYRep,"rb");
 	FILE* pfIndices=fopen(pathIndices,"rb");
 
-	if(!pfComponentes || !pfArmados || !|pfIndices){
+	if(!pfComponentes || !pfArmados || !pfIndices){
 		printf("No se pudo abrir alguno de los archivos...");
 		getch();
 		return 1;
@@ -216,9 +216,9 @@ void eliminarDeListaFrente_ALU(Lista* pl,void* elem,size_t tamElem){
 		return;
 	}
 
-	while((*pl)->ant)[
+	while((*pl)->ant){
 		*pl = (*pl)->ant;
-	]
+	}
 
 	NodoD* nae = *pl;
 	nae->sig->ant = NULL;

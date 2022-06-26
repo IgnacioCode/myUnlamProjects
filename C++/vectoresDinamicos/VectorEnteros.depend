@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1656177660 source:f:\github\myunlamprojects\c++\vectoresdinamicos\vectorenteros.cpp
+	"VectorEnteros.h"
+
+1656176987 f:\github\myunlamprojects\c++\vectoresdinamicos\vectorenteros.h
+	<iostream>
+
