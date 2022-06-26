@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
 }
 
 
-int actualizarComponentes_ALU(const char* pathComponentes, const char* pathArmadoYRep){
+int actualizarComponentes_alu(const char* pathComponentes, const char* pathArmadoYRep){
 ///	Resolver.
 /// Nota: Resuelva esta, y todas las funciones que necesite, en este archivo. Que ser� el que debe entregar. No modifique ni entregue otro/s archivos del proyecto.
 /// Agregue el sufijo "_alu" a todas las funciones que genere.FILE* bin;
