@@ -92,7 +92,9 @@ int actualizarComponentes_ALU(const char* pathComponentes, const char* pathArmad
 	crearLista_ALU(&listaArmados);
 
 	cargarArchivoEnLista_ALU(&listaArmados,pfArmados);
-	eliminaDuplicados_ALU(&listaArmados,comparaArmados,sumaArmados);
+	cargarArchivoEnArbolOrd_ALU(&arbolIndices,pfIndices);
+	eliminaDuplicados_ALU(&listaArmados,comparaArmados,sumaArmados); //Hacer en casa
+	
 
 	ArmadoYRep armadoLeido;
 	eliminaDeListaFrente_ALU(&listaArmados,&armadoLeido,sizeof(ArmadoYRep));
@@ -114,6 +116,81 @@ int actualizarComponentes_ALU(const char* pathComponentes, const char* pathArmad
 
 }
 
+void crearArbol(Arbol* pa){
+	*pa = NULL;
+}
+
+void crearLista_ALU(Lista* pl){
+	*pl = NULL;
+}
+
+void cargarArchivoEnLista_ALU(Lista* pl, FILE* pf){
+	ArmadoYRep armadoLeido;
+	fread(&armadoLeido,sizeof(ArmadoYRep),1,pf);
+	while(!feof(pf)){
+		insertarEnListaFondo_ALU(pl,&armadoLeido,sizeof(ArmadoYRep));
+		fread(&armadoLeido,sizeof(ArmadoYRep),1,pf);
+	}
+}
+
+void cargarArchivoEnArbolOrd_ALU(Arbol* pa, FILE* pf){
 
 
+	
+}
 
+booleano insertarEnListaFondo_ALU(Lista* pl,void* elem, size_t tamElem){
+	
+	NodoD* nue = creadNodoD_ALU(elem,tamElem);
+	if(!nue){
+		return FALSO;
+	}
+	if(!*pl){	
+		*pl = nue;
+		return VERDADERO;
+	}
+
+	while((*pl)->sig){
+		*pl = (*pl)->sig;
+	}
+
+	(*pl)->sig = nue;
+	nue->ant = (*pl)->sig;
+	return VERDADERO;
+}
+
+void eliminarDeListaFrente_ALU(Lista* pl,void* elem,size_t tamElem){
+
+	if(!*pl){
+		return;
+	}
+
+	while((*pl)->ant)[
+		*pl = (*pl)->ant;
+	]
+
+	NodoD* nae = *pl;
+	nae->sig->ant = NULL;
+	destruirNodoD_ALU(nae, elem, tamElem);
+
+}
+
+NodoD* creadNodoD_ALU(void* elem,size_t tamElem){
+	NodoD* nue = (NodoD*)malloc(sizeof(NodoD));
+	void* nueElem = malloc(tamElem);
+
+	memcpy(nueElem,elem,tamElem);
+
+	nue->elem = nueElem;
+	nue->ant = NULL;
+	nue->sig = NULL;
+	nue->tamElem = tamElem;
+
+	return nue;
+}
+
+void destruirNodoD_ALU(NodoD* nae, void* elem, size_t tamElem){
+	memcpy(elem,nae->elem,MIN(tamElem,nae->tamElem));
+	free(nae->elem);
+	free(nae);
+}
