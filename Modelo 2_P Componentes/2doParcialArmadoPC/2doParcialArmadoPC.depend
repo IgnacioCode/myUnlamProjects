@@ -154,7 +154,7 @@
 
 1625870811 h:\userdata\facultad\programmin_v2\parciales\pan\ayuda\2021_07_12_2doparcial_entregable_64bits\solucion2doparcialarmadopc\tiposarmadopc.h
 
-1656184008 source:f:\github\myunlamprojects\modelo 2_p componentes\2doparcialarmadopc\main.c
+1656295249 source:f:\github\myunlamprojects\modelo 2_p componentes\2doparcialarmadopc\main.c
 	<locale.h>
 	<windows.h>
 	<stdio.h>
@@ -176,13 +176,13 @@
 1623682906 f:\github\myunlamprojects\modelo 2_p componentes\tdalistaimpldinamicadoble\tdalistaimpldinamicadoble.h
 	"../Nodo/NodoD.h"
 
-1623682882 f:\github\myunlamprojects\modelo 2_p componentes\nodo\nodod.h
+1656280604 f:\github\myunlamprojects\modelo 2_p componentes\nodo\nodod.h
 	<stddef.h>
 
 1624891480 f:\github\myunlamprojects\modelo 2_p componentes\tdaarbolimpldinamica\tdaarbolimpldinamica.h
 	"../Nodo/NodoA.h"
 
-1625872472 f:\github\myunlamprojects\modelo 2_p componentes\nodo\nodoa.h
+1656280681 f:\github\myunlamprojects\modelo 2_p componentes\nodo\nodoa.h
 	<stddef.h>
 
 1625944557 f:\github\myunlamprojects\modelo 2_p componentes\tdaarbol\tdaarbol.h
