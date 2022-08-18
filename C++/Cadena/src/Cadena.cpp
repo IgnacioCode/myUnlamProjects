@@ -30,7 +30,6 @@ Cadena::Cadena(const char* str){
     this->cadena = new char[strlen(str)+1];
     strcpy(this->cadena,str);
 
-
 }
 
 Cadena::Cadena(const Cadena& cad2){
